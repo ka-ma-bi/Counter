@@ -25,6 +25,8 @@ body {
 
 /* Container styling */
 .container {
+  width: 95%;
+  max-width: 500px;
   text-align: center;
   padding: 2.5rem 3rem;
   border-radius: 18px;
@@ -103,4 +105,5 @@ button:active {
   font-size: 0.95rem;
   color: #475569;
 }
+
 
