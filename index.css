@@ -9,7 +9,7 @@
 
 /* Body with animated background */
 body {
-  
+  height: 100vh;
   background-image: url("quickcount.png");
   background-size: cover;
   display: flex;
@@ -103,3 +103,4 @@ button:active {
   font-size: 0.95rem;
   color: #475569;
 }
+
