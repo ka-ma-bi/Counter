@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -7,14 +6,16 @@
   font-style: italic;
 }
 
-/* Body with animated background */
+/* Body with responsive background */
 body {
   height: 100vh;
   background-image: url("quickcount.png");
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 @keyframes gradientShift {
@@ -30,12 +31,9 @@ body {
   text-align: center;
   padding: 2.5rem 3rem;
   border-radius: 18px;
-  max-width: 400px;
   color: #1e293b;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-
-  /* Animated gradient background */
   background: linear-gradient(
     135deg,
     #E3E8F5,
@@ -56,10 +54,11 @@ body {
 /* Headings and paragraph */
 h1, h2, p {
   font-weight: 700;
+  line-height: 1.2;
 }
 
 h1, p {
-  font-size: 3rem;
+  font-size: clamp(1.6rem, 6vw, 3rem);
   background: linear-gradient(90deg, #3D52A0, #7091E6, #8697C4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,18 +66,18 @@ h1, p {
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: clamp(1.8rem, 7vw, 3.5rem);
   color: #3D52A0;
   margin-bottom: 1.5rem;
 }
 
 /* Buttons */
 button {
-  width: 140px;
+  width: clamp(110px, 35vw, 140px);
   height: 45px;
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 3vw, 1rem);
   font-weight: 400;
   color: white;
   background: linear-gradient(135deg, #7091E6, #3D52A0);
@@ -102,8 +101,62 @@ button:active {
 /* Save element */
 #save-el {
   margin-top: 1.2rem;
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.95rem);
   color: #475569;
 }
 
+/* --- RESPONSIVE BREAKPOINTS --- */
 
+/* Tablet screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+
+  button {
+    width: clamp(100px, 40vw, 130px);
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+    border-radius: 14px;
+  }
+
+  h1, h2, p {
+    text-shadow: none; /* improve legibility on small screens */
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+    margin: 0.4rem auto;
+    display: block;
+  }
+
+  #save-el {
+    font-size: 0.85rem;
+  }
+}
+
+/* Ultra small devices */
+@media (max-width: 360px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1, h2 {
+    font-size: clamp(1.2rem, 7vw, 2rem);
+  }
+
+  button {
+    height: 42px;
+    font-size: 0.75rem;
+  }
+}
